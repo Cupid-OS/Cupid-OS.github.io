@@ -4,88 +4,104 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thiago's personal website and server management panel">
+    <meta name="description" content="CupidEXE Y2K control deck for Thiago's game servers">
     <meta name="author" content="Thiago">
     
     <!-- Title -->
-    <title>Thiago - Server Management</title>
+    <title>CupidEXE | Y2K Control Deck</title>
     
-    <!-- Google Fonts - JetBrains Mono -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Main Container -->
-    <div class="container">
-        <!-- Header Section -->
-        <header>
-            <h1 id="typing-text"></h1>
-            <div class="subtitle">I'm Thiago</div>
+    <main class="container">
+        <header class="hero">
+            <div class="logo-stack">
+                <div class="logo-orb">
+                    <span class="ring ring-1"></span>
+                    <span class="ring ring-2"></span>
+                    <span class="ring ring-3"></span>
+                    <div class="logo-core">Cupid<span>EXE</span></div>
+                </div>
+                <p class="logo-caption">Central process • CupidEXE</p>
+            </div>
+            <div class="hero-content">
+                <p class="eyebrow">Y2K control hub · v2.5</p>
+                <h1 id="typing-text"></h1>
+                <div class="subtitle">I'm Thiago</div>
+                <p class="lead">Game servers, VPN access, and tools wrapped in a retro-future shell.</p>
+                <div class="hero-actions">
+                    <a href="https://panel.cupidexe.me/" class="panel-button">🎮 Access Server Panel</a>
+                    <div class="hero-tags">
+                        <span class="tag">Minecraft + friends</span>
+                        <span class="tag">Network admin</span>
+                        <span class="tag">Multilingual mix</span>
+                    </div>
+                </div>
+            </div>
         </header>
 
-        <!-- About Section -->
-        <section class="about">
-            <h2>About Me</h2>
-            
-            <p>
-                Hi there! I'm a 17-year-old tech enthusiast with a multicultural background. 
-                Born in the UK with Spanish and Portuguese heritage, I bring a diverse 
-                perspective to everything I do.
-            </p>
-            
-            <p>
-                Currently, I'm studying an IT course, diving deep into technology and 
-                expanding my skills in systems administration and networking. This website 
-                serves as my hub for managing my Minecraft server panel and other game 
-                servers that I run for playing with friends.
-            </p>
-            
-            <!-- Info Grid -->
-            <div class="info-grid">
-                <div class="info-item">
-                    <strong>Age</strong>
-                    <span>17</span>
+        <section class="grid">
+            <section class="card about">
+                <div class="card-header">
+                    <h2>About Me</h2>
+                    <span class="pill">Status: Online</span>
                 </div>
-                <div class="info-item">
-                    <strong>Location</strong>
-                    <span>UK</span>
+                <p>
+                    Hi there! I'm a 17-year-old tech enthusiast with a multicultural background. 
+                    Born in the UK with Spanish and Portuguese heritage, I bring a diverse 
+                    perspective to everything I do.
+                </p>
+                <p>
+                    Currently, I'm studying an IT course, diving deep into technology and 
+                    expanding my skills in systems administration and networking. This website 
+                    serves as my hub for managing my Minecraft server panel and other game 
+                    servers that I run for playing with friends.
+                </p>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Age</strong>
+                        <span>17</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Location</strong>
+                        <span>UK</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Heritage</strong>
+                        <span>🇪🇸 🇵🇹</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Studies</strong>
+                        <span>IT Course</span>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <strong>Heritage</strong>
-                    <span>🇪🇸 🇵🇹</span>
+            </section>
+
+            <section class="card vpn">
+                <div class="card-header">
+                    <h2>VPN Access</h2>
+                    <span class="pill ghost">Secure gate</span>
                 </div>
-                <div class="info-item">
-                    <strong>Studies</strong>
-                    <span>IT Course</span>
+                <p class="vpn-copy">Enter the password to download the preconfigured OpenVPN profile.</p>
+                <div class="vpn-controls">
+                    <input type="password" id="vpn-password" placeholder="Password" aria-label="VPN password">
+                    <button id="vpn-download">Get VPN Config</button>
                 </div>
-            </div>
+                <div class="vpn-status" id="vpn-status" role="status" aria-live="polite"></div>
+            </section>
         </section>
 
-        <!-- Panel Button -->
-        <a href="https://panel.cupidexe.me/" class="panel-button">
-            🎮 Access Server Panel
-        </a>
-
-        <!-- VPN Section -->
-        <section class="vpn">
-            <h2>VPN Access</h2>
-            <p class="vpn-copy">Enter the password to download the preconfigured OpenVPN profile.</p>
-            <div class="vpn-controls">
-                <input type="password" id="vpn-password" placeholder="Password" aria-label="VPN password">
-                <button id="vpn-download">Get VPN Config</button>
-            </div>
-            <div class="vpn-status" id="vpn-status" role="status" aria-live="polite"></div>
-        </section>
-
-        <!-- Footer -->
         <footer class="footer">
             <p>Hosting & managing game servers since 2025</p>
         </footer>
-    </div>
+    </main>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
