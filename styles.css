@@ -165,6 +165,86 @@ h1 {
     margin-top: 20px;
 }
 
+/* ========================================
+   VPN SECTION
+   ======================================== */
+
+.vpn {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f3f4ff;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    text-align: left;
+}
+
+.vpn h2 {
+    color: #4c51bf;
+    margin-bottom: 10px;
+}
+
+.vpn-copy {
+    color: #4a5568;
+    margin-bottom: 15px;
+}
+
+.vpn-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.vpn-controls input {
+    flex: 1 1 180px;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vpn-controls input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+}
+
+.vpn-controls button {
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+}
+
+.vpn-controls button:hover {
+    transform: translateY(-1px);
+}
+
+.vpn-controls button:active {
+    transform: translateY(0);
+}
+
+.vpn-status {
+    min-height: 20px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.vpn-status.success {
+    color: #2f855a;
+}
+
+.vpn-status.error {
+    color: #c53030;
+}
+
 .panel-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
