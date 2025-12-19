@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    font-family: 'Space Grotesk', 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
     background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 40%),
                 radial-gradient(circle at 80% 0%, rgba(0, 210, 255, 0.08), transparent 35%),
                 linear-gradient(135deg, var(--bg-1), var(--bg-2));
@@ -163,7 +163,7 @@ body::after {
 }
 
 h1 {
-    font-family: 'Audiowide', 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'Audiowide', monospace;
     font-size: clamp(2.4rem, 3vw + 1rem, 3.2rem);
     background: linear-gradient(120deg, var(--accent), var(--accent-2));
     -webkit-background-clip: text;
@@ -215,6 +215,38 @@ h1 {
     color: var(--accent);
 }
 
+/* Language switcher */
+.lang-switch {
+    display: inline-flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.lang-btn {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(0,210,255,0.16));
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.lang-btn:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent-2);
+    box-shadow: 0 8px 20px rgba(0, 210, 255, 0.25);
+}
+
+.lang-btn.active {
+    border-color: var(--accent-2);
+    box-shadow: 0 10px 26px rgba(0, 210, 255, 0.3), 0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+
 .hero-tags {
     display: flex;
     flex-wrap: wrap;
@@ -258,7 +290,7 @@ h1 {
 }
 
 .card h2 {
-    font-family: 'Audiowide', 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', 'Audiowide', monospace;
     color: var(--text);
     font-size: 1.3rem;
     letter-spacing: 0.04em;
@@ -407,6 +439,79 @@ h1 {
     min-height: 22px;
     font-weight: 700;
     color: var(--muted);
+}
+
+/* Support / Issue form styles (simple, no modal) */
+.support {
+    background: linear-gradient(150deg, rgba(22, 24, 34, 0.9), rgba(12, 14, 20, 0.86));
+}
+
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.support-form .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.support-form label {
+    font-size: 0.9rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+
+.support-form input,
+.support-form textarea {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    color: var(--text);
+    font-size: 0.98rem;
+    resize: vertical;
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 3px rgba(0,210,255,0.12);
+}
+
+.support-button {
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #ffffff, var(--accent-2));
+    color: #061018;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.support-button:hover {
+    transform: translateY(-2px);
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-left: 12px;
+}
+
+/* Language change transition (easily removable by deleting this block) */
+.lang-transition {
+    animation: langFade 0.45s ease;
+}
+
+@keyframes langFade {
+    0% { opacity: 0.35; filter: blur(2px); }
+    50% { opacity: 1; filter: blur(0.6px) hue-rotate(5deg); }
+    100% { opacity: 1; filter: none; }
 }
 
 .vpn-status.success {

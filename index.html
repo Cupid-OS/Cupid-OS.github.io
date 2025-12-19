@@ -26,37 +26,42 @@
                 <div class="logo-frame">
                     <img src="assets/cupidexe-logo.svg" alt="CupidEXE logo" />
                 </div>
-                <p class="logo-caption">EST 2008 · CupidEXE</p>
+                <p class="logo-caption">EST 2008</p>
             </div>
             <div class="hero-content">
-                <p class="eyebrow">Y2K control hub · v2.5</p>
-                <h1 id="typing-text"></h1>
-                <div class="subtitle">I'm Thiago</div>
-                <p class="lead">Game servers, VPN access, and tools wrapped in a retro-future shell.</p>
+                <p class="eyebrow" data-l10n-key="eyebrow">Y2K control panel · v2.5</p>
+                <h1 id="hero-title" data-l10n-key="title">Welcome!</h1>
+                <div class="subtitle" data-l10n-key="subtitle">I'm Thiago</div>
+                <p class="lead" data-l10n-key="lead">Game servers, VPN access, and tools wrapped in a retro-future shell.</p>
                 <div class="hero-actions">
-                    <a href="https://panel.cupidexe.me/" class="panel-button">🎮 Access Server Panel</a>
+                    <a href="https://panel.cupidexe.me/" class="panel-button" data-l10n-key="panelButton">🎮 Access Server Panel</a>
                     <div class="hero-tags">
-                        <span class="tag">Minecraft + friends</span>
-                        <span class="tag">Network admin</span>
-                        <span class="tag">Multilingual mix</span>
+                        <span class="tag" data-l10n-key="tag1">Minecraft + friends</span>
+                        <span class="tag" data-l10n-key="tag2">Network admin</span>
+                        <span class="tag" data-l10n-key="tag3">Multilingual mix</span>
+                    </div>
+                    <div class="lang-switch" aria-label="Language selector">
+                        <button type="button" class="lang-btn active" data-lang="en" title="English (UK)">🇬🇧 EN</button>
+                        <button type="button" class="lang-btn" data-lang="es" title="Español">🇪🇸 ES</button>
+                        <button type="button" class="lang-btn" data-lang="pt" title="Português">🇵🇹 PT</button>
                     </div>
                 </div>
-                <a class="scroll-prompt" href="#deck">Scroll down</a>
+                <a class="scroll-prompt" href="#deck" data-l10n-key="scrollPrompt">Scroll down</a>
             </div>
         </header>
 
         <section class="grid" id="deck">
             <section class="card about">
                 <div class="card-header">
-                    <h2>About Me</h2>
-                    <span class="pill">Status: Online</span>
+                    <h2 data-l10n-key="aboutTitle">About Me</h2>
+                    <span class="pill" data-l10n-key="statusOnline">Status: Online</span>
                 </div>
-                <p>
+                <p data-l10n-key="aboutP1">
                     Hi there! I'm a 17-year-old tech enthusiast with a multicultural background. 
                     Born in the UK with Spanish and Portuguese heritage, I bring a diverse 
                     perspective to everything I do.
                 </p>
-                <p>
+                <p data-l10n-key="aboutP2">
                     Currently, I'm studying an IT course, diving deep into technology and 
                     expanding my skills in systems administration and networking. This website 
                     serves as my hub for managing my Minecraft server panel and other game 
@@ -64,40 +69,72 @@
                 </p>
                 <div class="info-grid">
                     <div class="info-item">
-                        <strong>Age</strong>
-                        <span>17</span>
+                        <strong data-l10n-key="infoAgeLabel">Age</strong>
+                        <span data-l10n-key="infoAgeValue">17</span>
                     </div>
                     <div class="info-item">
-                        <strong>Location</strong>
-                        <span>UK</span>
+                        <strong data-l10n-key="infoLocationLabel">Location</strong>
+                        <span data-l10n-key="infoLocationValue">UK</span>
                     </div>
                     <div class="info-item">
-                        <strong>Heritage</strong>
-                        <span>🇪🇸 🇵🇹</span>
+                        <strong data-l10n-key="infoHeritageLabel">Heritage</strong>
+                        <span data-l10n-key="infoHeritageValue">🇬🇧 🇪🇸 🇵🇹</span>
                     </div>
                     <div class="info-item">
-                        <strong>Studies</strong>
-                        <span>IT Course</span>
+                        <strong data-l10n-key="infoStudiesLabel">Studies</strong>
+                        <span data-l10n-key="infoStudiesValue">IT Course</span>
                     </div>
                 </div>
             </section>
 
             <section class="card vpn">
                 <div class="card-header">
-                    <h2>VPN Access</h2>
-                    <span class="pill ghost">Secure gate</span>
+                    <h2 data-l10n-key="vpnTitle">VPN Access</h2>
+                    <span class="pill ghost" data-l10n-key="vpnPill">Secure gate</span>
                 </div>
-                <p class="vpn-copy">Enter the password to download the preconfigured OpenVPN profile.</p>
+                <p class="vpn-copy" data-l10n-key="vpnCopy">Enter the password to download the preconfigured OpenVPN profile.</p>
                 <div class="vpn-controls">
-                    <input type="password" id="vpn-password" placeholder="Password" aria-label="VPN password">
-                    <button id="vpn-download">Get VPN Config</button>
+                    <input type="password" id="vpn-password" placeholder="Password" aria-label="VPN password" data-l10n-placeholder="vpnPasswordPlaceholder">
+                    <button id="vpn-download" data-l10n-key="vpnButton">Get VPN Config</button>
                 </div>
                 <div class="vpn-status" id="vpn-status" role="status" aria-live="polite"></div>
             </section>
         </section>
+            <section class="card support" id="support-card">
+                <div class="card-header">
+                    <h2 data-l10n-key="supportTitle">Report a Server Issue</h2>
+                    <span class="pill ghost" data-l10n-key="supportPill">Need help?</span>
+                </div>
+                <form id="support-form" class="support-form" aria-label="Server issue form">
+                    <div class="form-row">
+                        <label for="discord-name" data-l10n-key="supportLabelDiscord">Discord name</label>
+                        <input type="text" id="discord-name" name="discord" placeholder="username#1234" data-l10n-placeholder="supportPlaceholderDiscord">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="mc-name" data-l10n-key="supportLabelMC">Minecraft name</label>
+                        <input type="text" id="mc-name" name="minecraft" placeholder="Steve" data-l10n-placeholder="supportPlaceholderMC">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="topic" data-l10n-key="supportLabelTopic">Topic</label>
+                        <input type="text" id="topic" name="topic" placeholder="Short summary (e.g. can't join server)" data-l10n-placeholder="supportPlaceholderTopic" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="description" data-l10n-key="supportLabelDescription">Describe the issue</label>
+                        <textarea id="description" name="description" rows="5" placeholder="Describe what happened, steps to reproduce, error messages..." data-l10n-placeholder="supportPlaceholderDescription" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <button type="submit" id="support-submit" class="support-button" data-l10n-key="supportButton">Send Email</button>
+                        <small class="muted" data-l10n-key="supportNote">This will open your email client addressed to thiago197533@gmail.com</small>
+                    </div>
+                </form>
+            </section>
 
         <footer class="footer">
-            <p>Hosting & managing game servers since 2025</p>
+            <p data-l10n-key="footerText">Hosting & managing game servers since 2025</p>
         </footer>
     </main>
 
