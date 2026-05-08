@@ -3,90 +3,9 @@
    ======================================== */
 
 // Typing animation removed; static title with translations now.
+};
 
-const DEFAULT_LANG = 'en';
-const LANG_STORAGE_KEY = 'cupidexe-lang';
-
-const TRANSLATIONS = {
-    en: {
-        eyebrow: 'Y2K control panel · v2.5',
-    title: 'Welcome!',
-        subtitle: "I'm Thiago",
-        lead: 'Game servers, VPN access, and tools wrapped in a retro-future shell.',
-        panelButton: '🎮 Access Server Panel',
-        tag1: 'Minecraft + friends',
-        tag2: 'Network admin',
-        tag3: 'Multilingual mix',
-        scrollPrompt: 'Scroll down',
-        aboutTitle: 'About Me',
-        statusOnline: 'Status: Online',
-        aboutP1: "Hi there! I'm a 17-year-old tech enthusiast with a multicultural background. Born in the UK with Spanish and Portuguese heritage, I bring a diverse perspective to everything I do.",
-        aboutP2: 'Currently, I\'m studying an IT course, diving deep into technology and expanding my skills in systems administration and networking. This website serves as my hub for managing my Minecraft server panel and other game servers that I run for playing with friends.',
-        infoAgeLabel: 'Age',
-        infoAgeValue: '17',
-        infoLocationLabel: 'Location',
-        infoLocationValue: 'UK',
-        infoHeritageLabel: 'Heritage',
-        infoHeritageValue: '🇬🇧 🇪🇸 🇵🇹',
-        infoStudiesLabel: 'Studies',
-        infoStudiesValue: 'IT Course',
-        vpnTitle: 'VPN Access',
-        vpnPill: 'Secure gate',
-        vpnCopy: 'Enter the password to download the preconfigured OpenVPN profile.',
-        vpnPasswordPlaceholder: 'Password',
-        vpnButton: 'Get VPN Config',
-        supportTitle: 'Report a Server Issue',
-        supportPill: 'Need help?',
-        supportLabelDiscord: 'Discord name',
-        supportPlaceholderDiscord: 'username#1234',
-        supportLabelMC: 'Minecraft name',
-        supportPlaceholderMC: 'Steve',
-        supportLabelTopic: 'Topic',
-        supportPlaceholderTopic: "Short summary (e.g. can't join server)",
-        supportLabelDescription: 'Describe the issue',
-        supportPlaceholderDescription: 'Describe what happened, steps to reproduce, error messages...',
-        supportButton: 'Send Email',
-        supportNote: 'This will open your email client addressed to thiago197533@gmail.com',
-        footerText: 'Hosting & managing game servers since 2025'
-    },
-    es: {
-        eyebrow: 'Panel de control Y2K · v2.5',
-    title: '¡Bienvenido!',
-        subtitle: 'Soy Thiago',
-        lead: 'Servidores de juego, acceso VPN y herramientas con estética retro-futurista.',
-        panelButton: '🎮 Acceder al panel del servidor',
-        tag1: 'Minecraft + amigos',
-        tag2: 'Admin de redes',
-        tag3: 'Mezcla multilingüe',
-        scrollPrompt: 'Desplaza hacia abajo',
-        aboutTitle: 'Sobre mí',
-        statusOnline: 'Estado: En línea',
-        aboutP1: '¡Hola! Soy un entusiasta de la tecnología de 17 años con un trasfondo multicultural. Nací en el Reino Unido con herencia española y portuguesa, y aporto una perspectiva diversa a todo lo que hago.',
-        aboutP2: 'Actualmente estudio un curso de TI, profundizando en tecnología y ampliando mis habilidades en administración de sistemas y redes. Este sitio es mi centro para gestionar mi panel de servidor de Minecraft y otros servidores de juego que administro para jugar con amigos.',
-        infoAgeLabel: 'Edad',
-        infoAgeValue: '17',
-        infoLocationLabel: 'Ubicación',
-        infoLocationValue: 'Reino Unido',
-        infoHeritageLabel: 'Herencia',
-        infoHeritageValue: '🇬🇧 🇪🇸 🇵🇹',
-        infoStudiesLabel: 'Estudios',
-        infoStudiesValue: 'Curso de TI',
-        vpnTitle: 'Acceso VPN',
-        vpnPill: 'Puerta segura',
-        vpnCopy: 'Ingresa la contraseña para descargar el perfil de OpenVPN preconfigurado.',
-        vpnPasswordPlaceholder: 'Contraseña',
-        vpnButton: 'Obtener config VPN',
-        supportTitle: 'Reportar un problema del servidor',
-        supportPill: '¿Necesitas ayuda?',
-        supportLabelDiscord: 'Nombre de Discord',
-        supportPlaceholderDiscord: 'usuario#1234',
-        supportLabelMC: 'Nombre de Minecraft',
-        supportPlaceholderMC: 'Steve',
-        supportLabelTopic: 'Asunto',
-        supportPlaceholderTopic: 'Resumen breve (ej. no puedo entrar)',
-        supportLabelDescription: 'Describe el problema',
-        supportPlaceholderDescription: 'Describe qué pasó, pasos para reproducir, mensajes de error...',
-        supportButton: 'Enviar correo',
+// VPN delivery removed (no longer used)
         supportNote: 'Esto abrirá tu cliente de correo dirigido a thiago197533@gmail.com',
         footerText: 'Alojando y gestionando servidores de juego desde 2025'
     },
@@ -102,10 +21,10 @@ const TRANSLATIONS = {
         scrollPrompt: 'Rolar para baixo',
         aboutTitle: 'Sobre mim',
         statusOnline: 'Status: Online',
-        aboutP1: 'Oi! Sou um entusiasta de tecnologia de 17 anos com um histórico multicultural. Nascido no Reino Unido com herança espanhola e portuguesa, trago uma perspectiva diversa para tudo o que faço.',
+        aboutP1: 'Oi! Sou um entusiasta de tecnologia de 18 anos com um histórico multicultural. Nascido no Reino Unido com herança espanhola e portuguesa, trago uma perspectiva diversa para tudo o que faço.',
         aboutP2: 'Atualmente estudo um curso de TI, aprofundando em tecnologia e expandindo habilidades em administração de sistemas e redes. Este site é meu hub para gerenciar meu painel de servidor de Minecraft e outros servidores de jogo que rodo para jogar com amigos.',
         infoAgeLabel: 'Idade',
-        infoAgeValue: '17',
+        infoAgeValue: '18',
         infoLocationLabel: 'Local',
         infoLocationValue: 'Reino Unido',
         infoHeritageLabel: 'Herança',
@@ -222,7 +141,6 @@ a5975843507e2424bc7006594cbd30bf
 
 document.addEventListener('DOMContentLoaded', () => {
     addButtonAnimations();
-    initVpnDownload();
     initSupportForm();
     initLanguageSwitcher();
 });
@@ -303,57 +221,7 @@ function applyTranslations(lang) {
 /**
  * Gated download of OpenVPN profile
  */
-function initVpnDownload() {
-    const passwordInput = document.getElementById('vpn-password');
-    const downloadButton = document.getElementById('vpn-download');
-    const statusEl = document.getElementById('vpn-status');
-
-    if (!passwordInput || !downloadButton || !statusEl) {
-        return;
-    }
-
-    const setStatus = (message, isError = false) => {
-        statusEl.textContent = message;
-        statusEl.classList.toggle('error', isError);
-        statusEl.classList.toggle('success', !isError);
-    };
-
-    const triggerDownload = () => {
-        const blob = new Blob([VPN_PROFILE], { type: 'application/x-openvpn-profile' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'CupidVPN-client1.ovpn';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        setTimeout(() => URL.revokeObjectURL(url), 1500);
-    };
-
-    const validateAndDownload = () => {
-        const entered = passwordInput.value.trim();
-
-        if (!entered) {
-            setStatus('Please enter the password.', true);
-            return;
-        }
-
-        if (entered !== VPN_PASSWORD) {
-            setStatus('Incorrect password.', true);
-            return;
-        }
-
-        setStatus('Password accepted. Downloading profile...', false);
-        triggerDownload();
-    };
-
-    downloadButton.addEventListener('click', validateAndDownload);
-    passwordInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            validateAndDownload();
-        }
-    });
-}
+// initVpnDownload removed
 
 /**
  * Support form handler - builds a mailto: link and opens the user's email client
