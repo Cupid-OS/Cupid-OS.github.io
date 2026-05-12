@@ -35,6 +35,7 @@
                 <p class="lead" data-l10n-key="lead">Game servers, VPN access, and tools wrapped in a retro-future shell.</p>
                 <div class="hero-actions">
                     <a href="https://panel.cupidexe.me/" class="panel-button" data-l10n-key="panelButton">🎮 Access Server Panel</a>
+                    <a href="football-game/" class="panel-button play-button">⚽ Play Football Game</a>
                     <div class="hero-tags">
                         <span class="tag" data-l10n-key="tag1">Minecraft + friends</span>
                         <span class="tag" data-l10n-key="tag2">Network admin</span>
@@ -87,40 +88,26 @@
                 </div>
             </section>
 
+            <section class="card studies-card" id="studies">
+                <div class="card-header">
+                    <h2>My Study PDFs</h2>
+                    <span class="pill ghost">Downloads</span>
+                </div>
+                <p class="studies-copy">
+                    Download these practice study files and use them to train at your own pace.
+                </p>
+                <div class="documents-grid">
+                    <article class="document-item">
+                        <strong>Subnetting Practice</strong>
+                        <span>Como hacer FLSM y VLSM</span>
+                        <small>PDF guide to practice FLSM and VLSM step by step.</small>
+                        <a class="document-link" href="assets/studies/como-hacer-flsm-y-vlsm.pdf" download>Download PDF</a>
+                    </article>
+                </div>
+            </section>
+
             <!-- VPN section removed per user request -->
         </section>
-            <section class="card support" id="support-card">
-                <div class="card-header">
-                    <h2 data-l10n-key="supportTitle">Report a Server Issue</h2>
-                    <span class="pill ghost" data-l10n-key="supportPill">Need help?</span>
-                </div>
-                <form id="support-form" class="support-form" aria-label="Server issue form">
-                    <div class="form-row">
-                        <label for="discord-name" data-l10n-key="supportLabelDiscord">Discord name</label>
-                        <input type="text" id="discord-name" name="discord" placeholder="username#1234" data-l10n-placeholder="supportPlaceholderDiscord">
-                    </div>
-
-                    <div class="form-row">
-                        <label for="mc-name" data-l10n-key="supportLabelMC">Minecraft name</label>
-                        <input type="text" id="mc-name" name="minecraft" placeholder="Steve" data-l10n-placeholder="supportPlaceholderMC">
-                    </div>
-
-                    <div class="form-row">
-                        <label for="topic" data-l10n-key="supportLabelTopic">Topic</label>
-                        <input type="text" id="topic" name="topic" placeholder="Short summary (e.g. can't join server)" data-l10n-placeholder="supportPlaceholderTopic" required>
-                    </div>
-
-                    <div class="form-row">
-                        <label for="description" data-l10n-key="supportLabelDescription">Describe the issue</label>
-                        <textarea id="description" name="description" rows="5" placeholder="Describe what happened, steps to reproduce, error messages..." data-l10n-placeholder="supportPlaceholderDescription" required></textarea>
-                    </div>
-
-                    <div class="form-row">
-                        <button type="submit" id="support-submit" class="support-button" data-l10n-key="supportButton">Send Email</button>
-                        <small class="muted" data-l10n-key="supportNote">This will open your email client addressed to thiago197533@gmail.com</small>
-                    </div>
-                </form>
-            </section>
 
         <footer class="footer">
             <p data-l10n-key="footerText">Hosting & managing game servers since 2025</p>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Head Football</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-card">
+        <header class="topbar">
+          <div class="title-stack">
+            <p class="howto-note">How to play: Blue uses A/D, W, Space. Red uses J/L, I, K in 1 v 1. Bump the ball to shoot.</p>
+            <p class="eyebrow">Web Football</p>
+            <h1>Big Head Football</h1>
+          </div>
+          <div class="header-stack">
+            <div class="mode-switcher" role="group" aria-label="Game mode">
+              <button id="modeCpuBtn" class="mode-btn is-active" type="button">1 v CPU</button>
+              <button id="modeLocalBtn" class="mode-btn" type="button">1 v 1</button>
+            </div>
+            <div class="difficulty-wrap" aria-label="CPU difficulty">
+              <span class="control-label">CPU</span>
+              <div id="difficultySwitcher" class="mode-switcher" role="group" aria-label="CPU difficulty levels">
+                <button id="difficultyEasyBtn" class="mode-btn" type="button">Easy</button>
+                <button id="difficultyNormalBtn" class="mode-btn is-active" type="button">Normal</button>
+                <button id="difficultyHardBtn" class="mode-btn" type="button">Hard</button>
+              </div>
+            </div>
+            <div class="difficulty-wrap" aria-label="Tournament mode">
+              <span class="control-label">Tournament</span>
+              <div id="tournamentSwitcher" class="mode-switcher" role="group" aria-label="Tournament options">
+                <button id="tourCasualBtn" class="mode-btn is-active" type="button">Casual</button>
+                <button id="tourBo3Btn" class="mode-btn" type="button">BO3</button>
+                <button id="tourBo5Btn" class="mode-btn" type="button">BO5</button>
+              </div>
+            </div>
+            <div class="utility-row">
+              <button id="keybindsBtn" class="utility-btn" type="button">Controls</button>
+              <button id="muteBtn" class="utility-btn" type="button">Sound: On</button>
+            </div>
+            <div class="scoreboard" aria-label="Scoreboard">
+              <div class="score-pill"><span>Blue</span><strong id="blueScore">0</strong></div>
+              <div class="score-pill"><span>Time</span><strong id="clock">90</strong></div>
+              <div class="score-pill"><span>Red</span><strong id="redScore">0</strong></div>
+            </div>
+            <div class="scoreboard" aria-label="Stamina and series">
+              <div class="score-pill"><span>Blue Stamina</span><strong id="blueStamina">100</strong></div>
+              <div class="score-pill"><span>Series</span><strong id="seriesScore">-</strong></div>
+              <div class="score-pill"><span>Red Stamina</span><strong id="redStamina">100</strong></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="stage-wrap">
+          <canvas id="game" width="960" height="540" aria-label="Big Head Football game"></canvas>
+          <div class="overlay">
+            <button id="restartBtn" type="button">Restart Match</button>
+          </div>
+        </div>
+
+        <footer class="footer-note">
+          <span>First to outscore your opponent before the clock hits zero wins.</span>
+          <span id="statusText">Kickoff ready.</span>
+        </footer>
+      </section>
+
+      <section id="keybindPanel" class="keybind-panel is-hidden" aria-label="Custom keybinds panel">
+        <div class="keybind-header">
+          <h2>Custom Keybinds</h2>
+          <button id="closeKeybindsBtn" type="button" class="utility-btn">Close</button>
+        </div>
+        <div class="keybind-grid">
+          <div class="keybind-team">
+            <h3>Blue</h3>
+            <button class="bind-btn" data-team="blue" data-action="left" type="button">Left: A</button>
+            <button class="bind-btn" data-team="blue" data-action="right" type="button">Right: D</button>
+            <button class="bind-btn" data-team="blue" data-action="jump" type="button">Jump: W</button>
+            <button class="bind-btn" data-team="blue" data-action="kick" type="button">Kick: Space</button>
+          </div>
+          <div class="keybind-team">
+            <h3>Red</h3>
+            <button class="bind-btn" data-team="red" data-action="left" type="button">Left: J</button>
+            <button class="bind-btn" data-team="red" data-action="right" type="button">Right: L</button>
+            <button class="bind-btn" data-team="red" data-action="jump" type="button">Jump: I</button>
+            <button class="bind-btn" data-team="red" data-action="kick" type="button">Kick: K</button>
+          </div>
+        </div>
+        <p id="bindHint" class="howto-note">Tip: click a button then press a key to remap.</p>
+      </section>
+
+      <div id="mobileControls" class="mobile-controls" aria-label="Touch controls">
+        <button class="touch-btn" data-touch-action="left" type="button">Left</button>
+        <button class="touch-btn" data-touch-action="right" type="button">Right</button>
+        <button class="touch-btn" data-touch-action="jump" type="button">Jump</button>
+        <button class="touch-btn touch-kick" data-touch-action="kick" type="button">Kick</button>
+      </div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

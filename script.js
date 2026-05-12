@@ -141,7 +141,6 @@ a5975843507e2424bc7006594cbd30bf
 
 document.addEventListener('DOMContentLoaded', () => {
     addButtonAnimations();
-    initSupportForm();
     initLanguageSwitcher();
 });
 
@@ -222,51 +221,6 @@ function applyTranslations(lang) {
  * Gated download of OpenVPN profile
  */
 // initVpnDownload removed
-
-/**
- * Support form handler - builds a mailto: link and opens the user's email client
- */
-function initSupportForm() {
-    const form = document.getElementById('support-form');
-    if (!form) return;
-    form.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-
-        const discord = document.getElementById('discord-name')?.value.trim() || '';
-        const mc = document.getElementById('mc-name')?.value.trim() || '';
-        const topic = document.getElementById('topic')?.value.trim() || '';
-        const description = document.getElementById('description')?.value.trim() || '';
-
-        // Basic validation
-        if (!topic) {
-            alert('Please enter a short topic for the issue.');
-            return;
-        }
-
-        if (!description) {
-            alert('Please describe the issue so I can help.');
-            return;
-        }
-
-        const to = 'thiago197533@gmail.com';
-        const subject = `[Server issue] ${topic}`;
-        const bodyLines = [
-            `Discord: ${discord}`,
-            `Minecraft: ${mc}`,
-            '',
-            'Issue description:',
-            description,
-            '',
-            `Page: ${window.location.href}`
-        ];
-
-        const body = encodeURIComponent(bodyLines.join('\n'));
-        const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-        // Open the user's email client with the prefilled message (no modal, no confetti)
-        window.location.href = mailto;
-    });
-}
 
 /* ==========================
    Support modal helpers
