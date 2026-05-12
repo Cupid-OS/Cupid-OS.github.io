@@ -44,9 +44,6 @@ const KICK_RANGE = 60;
 const BALL_RADIUS = 15;
 const MATCH_LENGTH = 90;
 const MAX_STAMINA = 100;
-const REPLAY_SECONDS = 3;
-const REPLAY_SPEED = 0.42;
-const HISTORY_MAX = 260;
 
 const AI_PROFILES = {
   easy: {
@@ -97,13 +94,6 @@ let seriesBlue = 0;
 let seriesRed = 0;
 let pendingNextMatch = false;
 let nextMatchTimer = 0;
-
-let replayActive = false;
-let replayTimer = 0;
-let replayFrames = [];
-let replayIndex = 0;
-let replayScorer = null;
-let frameHistory = [];
 
 let audioCtx = null;
 let muted = false;
@@ -164,9 +154,6 @@ function resetRound(scorer = null) {
   ball.vy = 0;
 
   goalPause = 1.1;
-  frameHistory = [];
-  replayActive = false;
-  replayScorer = null;
 
   if (scorer) {
     statusTextEl.textContent = `${capitalize(scorer)} scored!`;
@@ -182,7 +169,6 @@ function resetMatch() {
   matchOver = false;
   pendingNextMatch = false;
   nextMatchTimer = 0;
-  replayActive = false;
   updateHud();
   resetRound();
 }
@@ -362,7 +348,7 @@ function isActionPressed(team, action) {
 }
 
 function processHumanMovement(player, team, dt, enabled) {
-  if (!enabled || matchOver || goalPause > 0 || replayActive) {
+  if (!enabled || matchOver || goalPause > 0) {
     player.kickHeld = false;
     player.kickCharge = 0;
     return;
@@ -460,7 +446,7 @@ function attemptKick(player, power = 1) {
 }
 
 function updateAi(player, dt) {
-  if (gameMode !== 'cpu' || replayActive || matchOver || goalPause > 0) {
+  if (gameMode !== 'cpu' || matchOver || goalPause > 0) {
     return;
   }
 
@@ -616,11 +602,13 @@ function updateBall(dt) {
   if (scoredLeft) {
     redScore += 1;
     updateHud();
-    startReplay('red');
+    playSound('goal');
+    resetRound('red');
   } else if (scoredRight) {
     blueScore += 1;
     updateHud();
-    startReplay('blue');
+    playSound('goal');
+    resetRound('blue');
   }
 }
 
@@ -765,54 +753,6 @@ function drawBanner(text) {
   ctx.restore();
 }
 
-function snapshotFrame() {
-  return {
-    ball: { x: ball.x, y: ball.y, r: ball.r },
-    blue: { x: players.blue.x, y: players.blue.y, color: players.blue.color },
-    red: { x: players.red.x, y: players.red.y, color: players.red.color }
-  };
-}
-
-function pushHistory() {
-  frameHistory.push(snapshotFrame());
-  if (frameHistory.length > HISTORY_MAX) {
-    frameHistory.shift();
-  }
-}
-
-function startReplay(scorer) {
-  replayActive = true;
-  replayScorer = scorer;
-  replayTimer = REPLAY_SECONDS;
-  replayFrames = frameHistory.slice(-190);
-  if (!replayFrames.length) {
-    replayFrames = [snapshotFrame()];
-  }
-  replayIndex = 0;
-  playSound('goal');
-  statusTextEl.textContent = `${capitalize(scorer)} scored. Replay...`;
-}
-
-function runReplay(dt) {
-  replayTimer -= dt;
-  replayIndex += REPLAY_SPEED;
-
-  const idx = Math.min(replayFrames.length - 1, Math.floor(replayIndex));
-  const frame = replayFrames[idx];
-
-  drawField();
-  drawBallState(frame.ball);
-  drawPlayer(frame.blue);
-  drawPlayer(frame.red);
-  drawBanner('Replay x0.4');
-
-  if (replayTimer <= 0 || idx >= replayFrames.length - 1) {
-    replayActive = false;
-    frameHistory = [];
-    resetRound(replayScorer);
-  }
-}
-
 function concludeMatch() {
   matchOver = true;
   const isDraw = blueScore === redScore;
@@ -858,12 +798,6 @@ function step(timestamp) {
 
   ctx.clearRect(0, 0, WORLD_WIDTH, WORLD_HEIGHT);
 
-  if (replayActive) {
-    runReplay(dt);
-    requestAnimationFrame(step);
-    return;
-  }
-
   drawField();
 
   if (!matchOver) {
@@ -883,19 +817,16 @@ function step(timestamp) {
       resolveBodyCollision(players.blue, 0.8);
       resolveBodyCollision(players.red, 0.75);
 
-      if (!replayActive) {
-        if (ball.vx > 0.3) {
-          players.blue.facing = 1;
-        } else if (ball.vx < -0.3) {
-          players.blue.facing = -1;
-        }
+      if (ball.vx > 0.3) {
+        players.blue.facing = 1;
+      } else if (ball.vx < -0.3) {
+        players.blue.facing = -1;
+      }
 
-        pushHistory();
-        timeRemaining = Math.max(0, timeRemaining - dt);
-        updateHud();
-        if (timeRemaining <= 0) {
-          concludeMatch();
-        }
+      timeRemaining = Math.max(0, timeRemaining - dt);
+      updateHud();
+      if (timeRemaining <= 0) {
+        concludeMatch();
       }
     }
   } else if (pendingNextMatch) {
