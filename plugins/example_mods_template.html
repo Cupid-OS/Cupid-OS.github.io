@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mods List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .mod { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 4px; }
+        .mod h3 { margin-top: 0; }
+        .mod-meta { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>Available Mods</h1>
+    
+    {% if mods_list %}
+        <p>Total mods: <strong>{{ mods_list|length }}</strong></p>
+        
+        {% for mod in mods_list %}
+            <div class="mod">
+                <h3>{{ mod.name }}</h3>
+                
+                {% if mod.metadata %}
+                    <p><strong>Version:</strong> {{ mod.metadata.get('version', 'N/A') }}</p>
+                    <p><strong>Author:</strong> {{ mod.metadata.get('author', 'Unknown') }}</p>
+                    <p><strong>Description:</strong> {{ mod.metadata.get('description', 'No description') }}</p>
+                    
+                    {% if mod.metadata.get('dependencies') %}
+                        <p><strong>Dependencies:</strong> {{ mod.metadata.dependencies|join(', ') }}</p>
+                    {% endif %}
+                {% endif %}
+                
+                <p class="mod-meta">Files in mod: {{ mod.file_count }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No mods found. Add mod folders to the <code>/mods/</code> directory.</p>
+    {% endif %}
+    
+    <hr>
+    <h2>Raw JSON Data</h2>
+    <pre>{{ mods_json }}</pre>
+</body>
+</html>

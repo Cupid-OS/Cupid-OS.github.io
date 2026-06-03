@@ -1,0 +1,7 @@
+{
+  "name": "Advanced Mod",
+  "version": "2.1.0",
+  "description": "A more advanced example mod with dependencies",
+  "author": "Another Author",
+  "dependencies": ["example-mod-1"]
+}
