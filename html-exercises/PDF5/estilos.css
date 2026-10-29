@@ -1,0 +1,77 @@
+body {
+font-family: Arial, sans-serif;
+line-height: 1.6;
+margin: 20px;
+background-color: #f8f9fa;
+}
+header {
+background-color: #d1ecf1;
+border: 2px solid #17a2b8;
+padding: 15px;
+margin-bottom: 15px;
+}
+nav {
+background-color: #e2e3e5;
+border: 2px solid #6c757d;
+padding: 10px;
+margin-bottom: 15px;
+}
+main {
+background-color: #ffffff;
+border: 2px solid #007bff;
+padding: 15px;
+margin-bottom: 15px;
+}
+section {
+background-color: #f1f3f5;
+border: 1px dashed #007bff;
+padding: 10px;
+margin: 10px 0;
+}
+article {
+background-color: #fff3cd;
+border: 1px solid #ffeba2;
+padding: 10px;
+margin: 10px 0;
+}
+aside {
+background-color: #e2f0d9;
+border: 2px solid #388e3c;
+padding: 10px;
+margin: 10px 0;
+}
+footer {
+background-color: #f8d7da;
+border: 2px solid #dc3545;
+padding: 15px;
+margin-top: 15px;
+}
+div {
+border: 1px solid #ccc;
+padding: 8px;
+margin: 5px 0;
+background-color: #ffffff;
+}
+span.destacado {
+background-color: #ffeb3b;
+font-weight: bold;
+padding: 2px 4px;
+}
+figure {
+border: 1px solid #aaa;
+padding: 10px;
+text-align: center;
+background-color: #ffffff;
+margin: 10px 0;
+}
+figcaption {
+font-style: italic;
+color: #555;
+margin-top: 5px;
+}
+details {
+background-color: #e9ecef;
+border: 1px solid #ced4da;
+padding: 10px;
+margin: 10px 0;
+}
